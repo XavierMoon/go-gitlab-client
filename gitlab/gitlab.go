@@ -262,6 +262,7 @@ func (g *Gitlab) buildAndExecRequestRaw(method, u, opaque string, body []byte) (
 	}
 
 	req.Header.Add("Private-Token", g.Token)
+	req.Header.Add("Authorization", "Bearer "+g.Token)
 	if method == "POST" || method == "PUT" {
 		req.Header.Add("Content-Type", "application/json")
 	}
